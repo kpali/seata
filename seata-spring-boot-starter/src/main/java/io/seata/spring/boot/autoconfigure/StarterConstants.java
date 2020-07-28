@@ -26,13 +26,7 @@ import io.seata.spring.boot.autoconfigure.properties.client.ThreadFactoryPropert
 import io.seata.spring.boot.autoconfigure.properties.client.TmProperties;
 import io.seata.spring.boot.autoconfigure.properties.client.TransportProperties;
 import io.seata.spring.boot.autoconfigure.properties.client.UndoProperties;
-import io.seata.spring.boot.autoconfigure.properties.config.ConfigApolloProperties;
-import io.seata.spring.boot.autoconfigure.properties.config.ConfigConsulProperties;
-import io.seata.spring.boot.autoconfigure.properties.config.ConfigEtcd3Properties;
-import io.seata.spring.boot.autoconfigure.properties.config.ConfigFileProperties;
-import io.seata.spring.boot.autoconfigure.properties.config.ConfigNacosProperties;
-import io.seata.spring.boot.autoconfigure.properties.config.ConfigProperties;
-import io.seata.spring.boot.autoconfigure.properties.config.ConfigZooKeeperProperties;
+import io.seata.spring.boot.autoconfigure.properties.config.*;
 import io.seata.spring.boot.autoconfigure.properties.registry.RegistryConsulProperties;
 import io.seata.spring.boot.autoconfigure.properties.registry.RegistryEtcd3Properties;
 import io.seata.spring.boot.autoconfigure.properties.registry.RegistryEurekaProperties;
@@ -76,6 +70,7 @@ public class StarterConstants {
     public static final String CONFIG_ETCD3_PREFIX = CONFIG_PREFIX + ".etcd3";
     public static final String CONFIG_APOLLO_PREFIX = CONFIG_PREFIX + ".apollo";
     public static final String CONFIG_ZK_PREFIX = CONFIG_PREFIX + ".zk";
+    public static final String CONFIG_DISCONF_PREFIX = CONFIG_PREFIX + ".disconf";
     public static final String CONFIG_FILE_PREFIX = CONFIG_PREFIX + ".file";
 
     public static final HashMap<String, Class> PROPERTY_MAP = new HashMap<String, Class>(MAP_CAPACITY) {
@@ -100,6 +95,7 @@ public class StarterConstants {
             put(CONFIG_ZK_PREFIX, ConfigZooKeeperProperties.class);
             put(CONFIG_APOLLO_PREFIX, ConfigApolloProperties.class);
             put(CONFIG_ETCD3_PREFIX, ConfigEtcd3Properties.class);
+            put(CONFIG_DISCONF_PREFIX, ConfigDisconfProperties.class);
 
             put(REGISTRY_CONSUL_PREFIX, RegistryConsulProperties.class);
             put(REGISTRY_ETCD3_PREFIX, RegistryEtcd3Properties.class);

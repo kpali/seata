@@ -28,13 +28,7 @@ import io.seata.spring.boot.autoconfigure.properties.client.ThreadFactoryPropert
 import io.seata.spring.boot.autoconfigure.properties.client.TmProperties;
 import io.seata.spring.boot.autoconfigure.properties.client.TransportProperties;
 import io.seata.spring.boot.autoconfigure.properties.client.UndoProperties;
-import io.seata.spring.boot.autoconfigure.properties.config.ConfigApolloProperties;
-import io.seata.spring.boot.autoconfigure.properties.config.ConfigConsulProperties;
-import io.seata.spring.boot.autoconfigure.properties.config.ConfigEtcd3Properties;
-import io.seata.spring.boot.autoconfigure.properties.config.ConfigFileProperties;
-import io.seata.spring.boot.autoconfigure.properties.config.ConfigNacosProperties;
-import io.seata.spring.boot.autoconfigure.properties.config.ConfigProperties;
-import io.seata.spring.boot.autoconfigure.properties.config.ConfigZooKeeperProperties;
+import io.seata.spring.boot.autoconfigure.properties.config.*;
 import io.seata.spring.boot.autoconfigure.properties.registry.RegistryConsulProperties;
 import io.seata.spring.boot.autoconfigure.properties.registry.RegistryEtcd3Properties;
 import io.seata.spring.boot.autoconfigure.properties.registry.RegistryEurekaProperties;
@@ -178,6 +172,18 @@ public class PropertiesTest {
         assertEquals(6000L, context.getBean(ConfigZooKeeperProperties.class).getSessionTimeout());
         assertEquals(2000L, context.getBean(ConfigZooKeeperProperties.class).getConnectTimeout());
 
+    }
+
+    @Test
+    public void testConfigDisconfProperties() {
+        assertEquals("127.0.0.1:8014", context.getBean(ConfigDisconfProperties.class).getServerAddr());
+        assertEquals("seata-server", context.getBean(ConfigDisconfProperties.class).getApp());
+        assertEquals("1_0_0", context.getBean(ConfigDisconfProperties.class).getVersion());
+        assertEquals("rd", context.getBean(ConfigDisconfProperties.class).getEnv());
+        assertEquals("config.txt", context.getBean(ConfigDisconfProperties.class).getConfigFile());
+        assertEquals("127.0.0.1:2181", context.getBean(ConfigDisconfProperties.class).getZkHost());
+        assertEquals(6000, context.getBean(ConfigDisconfProperties.class).getZkSessionTimeout());
+        assertEquals(2000, context.getBean(ConfigDisconfProperties.class).getZkConnectTimeout());
     }
 
     @Test
